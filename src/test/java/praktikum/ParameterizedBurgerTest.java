@@ -51,7 +51,7 @@ public class ParameterizedBurgerTest {
     }
 
     @Test
-    public void testAddIngredient_Size() {
+    public void testAddIngredientSize() {
         Mockito.when(ingredient.getType()).thenReturn(IngredientType.SAUCE);
         Mockito.when(ingredient.getName()).thenReturn("hot sauce");
         Mockito.when(ingredient.getPrice()).thenReturn(100.0f);
@@ -62,7 +62,7 @@ public class ParameterizedBurgerTest {
     }
 
     @Test
-    public void testAddIngredient_Content() {
+    public void testAddIngredientContent() {
         Mockito.when(ingredient.getType()).thenReturn(IngredientType.SAUCE);
         Mockito.when(ingredient.getName()).thenReturn("hot sauce");
         Mockito.when(ingredient.getPrice()).thenReturn(100.0f);

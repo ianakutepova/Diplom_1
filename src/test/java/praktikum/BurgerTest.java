@@ -54,7 +54,7 @@ public class BurgerTest {
 
 
     @Test
-    public void testRemoveIngredient_Size() {
+    public void testRemoveIngredientSize() {
         burger.addIngredient(sourCream);
         burger.addIngredient(chiliSauce);
 
@@ -65,14 +65,14 @@ public class BurgerTest {
 
 
     @Test
-    public void testRemoveIngredient_Content() {
+    public void testRemoveIngredientContent() {
         burger.addIngredient(sourCream); burger.addIngredient(chiliSauce);
         burger.removeIngredient(0);
         assertEquals(chiliSauce, burger.ingredients.get(0)); }
 
 
     @Test
-    public void testMoveIngredient_Size() {
+    public void testMoveIngredientSize() {
         burger.addIngredient(cutlet);
         burger.addIngredient(dinosaur);
 
@@ -83,7 +83,7 @@ public class BurgerTest {
 
 
     @Test
-    public void testMoveIngredient_FirstPosition() {
+    public void testMoveIngredientFirstPosition() {
         burger.addIngredient(cutlet);
         burger.addIngredient(dinosaur);
 
@@ -93,7 +93,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void testMoveIngredient_SecondPosition() {
+    public void testMoveIngredientSecondPosition() {
         burger.addIngredient(cutlet);
         burger.addIngredient(dinosaur);
 
@@ -122,7 +122,7 @@ public class BurgerTest {
 
 
     @Test
-    public void testGetReceipt_BunName() {
+    public void testGetReceiptBunName() {
         Mockito.when(bun.getName()).thenReturn("Test Bun");
         burger.setBuns(bun);
 
@@ -131,7 +131,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void testGetReceipt_Ingredients() {
+    public void testGetReceiptIngredients() {
         burger.setBuns(bun);
 
         Mockito.when(hotSauce.getType()).thenReturn(IngredientType.SAUCE);
@@ -152,7 +152,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void testGetReceipt_Price() {
+    public void testGetReceiptPrice() {
         Mockito.when(bun.getPrice()).thenReturn(100.0f);
         burger.setBuns(bun);
 
