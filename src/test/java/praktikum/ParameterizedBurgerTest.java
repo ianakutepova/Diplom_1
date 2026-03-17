@@ -6,10 +6,6 @@ import org.junit.runners.Parameterized;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import praktikum.Bun;
-import praktikum.Burger;
-import praktikum.Ingredient;
-import praktikum.IngredientType;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -20,10 +16,12 @@ public class ParameterizedBurgerTest {
     private Burger burger;
     @Mock
     private Bun bun;
+    @Mock
+    private Ingredient ingredient;
 
     private String bunName;
     private float bunPrice;
-    private Ingredient ingredient;
+
 
     public ParameterizedBurgerTest(String bunName, float bunPrice, Ingredient ingredient) {
         this.bunName = bunName;
@@ -49,14 +47,28 @@ public class ParameterizedBurgerTest {
         bun = Mockito.mock(Bun.class);
         Mockito.when(bun.getName()).thenReturn(bunName);
         Mockito.when(bun.getPrice()).thenReturn(bunPrice);
+        ingredient = Mockito.mock(Ingredient.class); // Создаем мок для ingredient
     }
 
     @Test
-    public void testAddIngredient() {
-        burger.setBuns(bun);
+    public void testAddIngredient_Size() {
+        Mockito.when(ingredient.getType()).thenReturn(IngredientType.SAUCE);
+        Mockito.when(ingredient.getName()).thenReturn("hot sauce");
+        Mockito.when(ingredient.getPrice()).thenReturn(100.0f);
+
         burger.addIngredient(ingredient);
 
         assertEquals(1, burger.ingredients.size());
+    }
+
+    @Test
+    public void testAddIngredient_Content() {
+        Mockito.when(ingredient.getType()).thenReturn(IngredientType.SAUCE);
+        Mockito.when(ingredient.getName()).thenReturn("hot sauce");
+        Mockito.when(ingredient.getPrice()).thenReturn(100.0f);
+
+        burger.addIngredient(ingredient);
+
         assertEquals(ingredient, burger.ingredients.get(0));
     }
 }
